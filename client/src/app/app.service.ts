@@ -19,7 +19,7 @@ export class AppService {
 
   login(email: string, password: string): void {
     console.log('send /login request to server with email and password as payload');
-    this.http.get('/api/login', {email, password} as any).subscribe((res: any) => {
+    this.http.post('/api/login', {email, password} as any).subscribe((res: any) => {
       console.log('response from server', res);
       if (!res.login) {
         window.alert('Unable to login');
